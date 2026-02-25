@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Reviewer | Secure Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Modern Background Gradient */
+        body {
+            background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Glassmorphism Card with Glow */
+        .glass-portal {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            animation: cardEntrance 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: scale(0.9) translateY(30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Animated Floating Blobs */
+        .blob {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+            filter: blur(120px);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.15;
+            animation: drift 15s infinite alternate ease-in-out;
+        }
+
+        @keyframes drift {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(30%, 20%); }
+        }
+
+        /* Input Glow Focus */
+        .input-glow:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen relative">
+    
+    <div class="blob" style="top: 10%; left: 10%;"></div>
+    <div class="blob" style="bottom: 10%; right: 10%; animation-delay: -5s;"></div>
+
+    <div class="glass-portal p-12 rounded-[55px] w-full max-w-md text-center border-t-2 border-white/5">
+        
+        <div class="mb-8 inline-block p-5 bg-sky-500/10 rounded-full border border-sky-500/20">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+        </div>
+
+        <h1 class="text-4xl font-black italic text-white mb-2 tracking-tighter">AI <span class="text-sky-400">REVIEWER</span></h1>
+        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-[0.4em] mb-10">Neural Code Verification</p>
+
+        <form action="/login_action" method="POST" class="space-y-6">
+            <div class="text-left">
+                <label class="text-[10px] font-black uppercase text-slate-500 ml-4 mb-2 block tracking-widest">Operator Identity</label>
+                <input type="text" name="username" placeholder="admin" required
+                    class="w-full p-5 bg-black/40 rounded-3xl text-white border border-white/5 outline-none input-glow transition-all placeholder-slate-700">
+            </div>
+
+            <div class="text-left">
+                <label class="text-[10px] font-black uppercase text-slate-500 ml-4 mb-2 block tracking-widest">Security Override</label>
+                <input type="password" name="password" placeholder="••••••••" required
+                    class="w-full p-5 bg-black/40 rounded-3xl text-white border border-white/5 outline-none input-glow transition-all placeholder-slate-700">
+            </div>
+
+            <button type="submit" 
+                class="w-full bg-sky-500 hover:bg-sky-400 py-5 rounded-[28px] font-black text-white uppercase tracking-[0.3em] shadow-2xl shadow-sky-500/20 active:scale-95 transition-all mt-4">
+                Initialize System
+            </button>
+        </form>
+
+        <div class="mt-12 pt-8 border-t border-white/5 flex justify-center items-center gap-4 opacity-40">
+            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+            <span class="text-[9px] font-black uppercase tracking-widest">Core Engine: Java • Python • JS</span>
+        </div>
+    </div>
+
+</body>
+</html>

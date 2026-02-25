@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes rotate-bg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animated-bg {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, #0ea5e9, transparent 30%);
+            animation: rotate-bg 10s linear infinite;
+            z-index: -1;
+        }
+        .glass-box {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Button Glow Animation */
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.6);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-[#020617] flex items-center justify-center min-h-screen overflow-hidden">
+    
+    <div class="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+        <div class="animated-bg"></div>
+    </div>
+
+    <div class="glass-box p-12 rounded-[50px] w-[450px] text-center shadow-[0_0_50px_rgba(0,0,0,0.8)] relative overflow-hidden transition-all duration-500">
+        
+        <div class="absolute top-0 left-0 w-full h-[2px] bg-sky-500/50 animate-[bounce_3s_infinite] opacity-30"></div>
+
+        <div class="mb-10">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-sky-500/10 rounded-[30px] border border-sky-500/30 mb-6 group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-sky-400 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                </svg>
+            </div>
+            <h1 class="text-5xl font-black text-white italic tracking-tighter uppercase">AI <span class="text-sky-400">REV</span></h1>
+            <p class="text-slate-500 text-[10px] font-bold uppercase tracking-[0.6em] mt-3">Terminal Authentication</p>
+        </div>
+
+        <form action="/login_action" method="POST" class="space-y-8">
+            <div class="relative">
+                <input type="text" name="username" placeholder="OPERATOR ID" required 
+                    class="w-full p-5 bg-black/60 rounded-3xl text-white border border-white/5 outline-none focus:border-sky-500 transition-all placeholder-slate-700 font-mono tracking-widest text-sm">
+            </div>
+            
+            <div class="relative">
+                <input type="password" name="password" placeholder="ACCESS KEY" required 
+                    class="w-full p-5 bg-black/60 rounded-3xl text-white border border-white/5 outline-none focus:border-sky-500 transition-all placeholder-slate-700 font-mono tracking-widest text-sm">
+            </div>
+
+            <button type="submit" 
+                class="btn-glow w-full bg-sky-500 py-6 rounded-[30px] font-black text-[#020617] uppercase tracking-[0.4em] transition-all active:scale-95 shadow-lg shadow-sky-500/20">
+                Execute Link
+            </button>
+        </form>
+
+        <div class="mt-12 flex justify-center items-center gap-6 opacity-20">
+            <span class="text-[8px] font-bold text-white uppercase tracking-widest">Bio-Metric</span>
+            <div class="w-1 h-1 bg-sky-500 rounded-full"></div>
+            <span class="text-[8px] font-bold text-white uppercase tracking-widest">Encrypted</span>
+        </div>
+    </div>
+
+</body>
+</html>
