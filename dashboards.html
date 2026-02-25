@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Code Reviewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="card">
+    <h2>AI Code Reviewer</h2>
+
+    <form method="POST">
+        <select name="language">
+            <option>Python</option>
+            <option>Java</option>
+            <option>C++</option>
+        </select><br><br>
+
+        <textarea name="code" placeholder="Paste your code here..." required></textarea><br>
+
+        <button type="submit">Analyze Code</button>
+    </form>
+</div>
+
+</body>
+</html>
