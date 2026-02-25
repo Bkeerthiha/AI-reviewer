@@ -1,0 +1,105 @@
+/* --- Global Settings --- */
+:root {
+    --primary-cyan: #38bdf8;
+    --primary-purple: #818cf8;
+    --dark-bg: #020617;
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at 0% 0%, #0f172a 0%, #020617 100%);
+    color: #e2e8f0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- Grand Glassmorphism Cards --- */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    border-color: var(--primary-cyan);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+/* --- Neon Text Gradient --- */
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* --- Custom Professional Scrollbar --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-cyan);
+}
+
+/* --- Animated Buttons --- */
+.btn-grand {
+    background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-grand:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+}
+
+/* --- Code Block Styling --- */
+.code-window {
+    background: #000000;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    font-family: 'Fira Code', monospace;
+    padding: 20px;
+    color: #38bdf8;
+    line-height: 1.6;
+}
+
+/* --- Pulse Animation for Loading States --- */
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 5px rgba(56, 189, 248, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.5); }
+    100% { box-shadow: 0 0 5px rgba(56, 189, 248, 0.2); }
+}
+
+.loading-effect {
+    animation: pulse-glow 2s infinite;
+}
